@@ -1,5 +1,6 @@
 import "./Navbar.scss";
-
+import searchIcon from '../../assets/searchIcon.png'
+import cartIcon from '../../assets/cartIcon.png'
 const Navbar = () => {
   
   return (
@@ -11,8 +12,8 @@ const Navbar = () => {
       </header>
 
       <div className="search-container">
-        <img src="" alt="" />
-        <input type="text" className="search" />
+        <img src={searchIcon} alt="search icon" />
+        <input type="text" className="search" placeholder="Search store"/>
       </div>
 
       <div className="words-container">
@@ -20,7 +21,7 @@ const Navbar = () => {
 
         <h3>About</h3>
 
-        <img src="" alt="" className="bag" />
+        <img src={cartIcon} alt="cart icon" className="cart"/>
       </div>
 
     </div>

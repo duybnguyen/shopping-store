@@ -22,9 +22,50 @@
     }
   }
 
+  .search-container {
+    display: flex;
+    align-items: center;
+    font-size: .9rem;
+    gap: .5rem;
+    padding: .7rem .9rem;
+    background-color: #fff;
+    border-radius: 2rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+
+
+    .search {
+      outline: none;
+      border: none;
+      font-weight: 500;
+      transition: width 0.8s;
+      background-color: transparent;
+      width: 300px;
+      font-size: 1rem;
+    }
+
+    .search:focus {
+      width: 500px;
+    }
+
+    img {
+      width: 20px;
+      cursor: pointer;
+    }
+  }
+
   .words-container {
     display: flex;
     gap: 4rem;
     color: white;
+    align-items: center;
+
+    .cart {
+      width: 35px;
+      cursor: pointer;
+    }
+    .cart:hover {
+      transform: scale(1.1);
+      transition: .2s;
+    }
   }
 }
