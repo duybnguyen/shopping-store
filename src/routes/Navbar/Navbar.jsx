@@ -1,15 +1,16 @@
 import "./Navbar.scss";
 import searchIcon from '../../assets/searchIcon.png'
 import cartIcon from '../../assets/cartIcon.png'
+import { Link } from "react-router-dom";
 const Navbar = () => {
   
   return (
 
     <div className="navbar-container">
-      <header>
+      <Link to="/" className="logo">
         <h2 className="left">Fashion</h2>
         <h2 className="right">ist</h2>
-      </header>
+      </Link>
 
       <div className="search-container">
         <img src={searchIcon} alt="search icon" />

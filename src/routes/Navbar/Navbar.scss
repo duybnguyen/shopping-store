@@ -6,15 +6,17 @@
   justify-content: space-between;
   padding: 1.5rem 2rem;
 
-  header {
+  .logo {
     display: flex;
     border: 4px solid white;
     letter-spacing: 4px;
     gap: 2px;
+    text-decoration: none;
 
 
     .left {
       background: white;
+      color: black;
     }
 
     .right {
