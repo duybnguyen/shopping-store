@@ -1,3 +1,109 @@
 .products-container {
-  background-color: #8C5E58;
+  
+  .loading-spinner {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(255, 255, 255, 0.8); 
+    z-index: 9999; 
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+  
+  .header-container {
+    padding: 8rem 2rem 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+
+    .filter-container {
+      display: flex;
+      gap: .5rem;
+
+      select {
+        border: 0;
+        background-color: transparent;
+        
+      }
+    }
+  }
+
+  .items-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    
+
+    .item {
+      max-width: 400px;
+      box-shadow: 2px 2px 4px 2px lightgray;
+      border-radius: 1rem;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
+
+      h3 {
+        align-self: flex-start;
+        font-size: 1rem;
+      }
+
+
+      img {
+        max-height: 100px;
+        max-width: 100%;
+        margin-bottom: auto;
+      }
+
+      .item-details {
+        
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        
+      
+        .rating-container {
+          display: flex;
+          align-items: center;
+          gap: .5rem;
+          
+        }
+      }
+    }
+
+    .button-container {
+      display: flex;
+      width: 100%;
+      gap: 1rem;
+
+      button {
+        width: 100%;
+        padding: .4rem;
+        background-color: transparent;
+        border: 2px solid black;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: black;
+        color: white;
+        transition: .25s;
+      }
+    }
+
+    .item:hover {
+      transform: scale(1.03);
+      transition: .5s;
+    }
+  }
 }

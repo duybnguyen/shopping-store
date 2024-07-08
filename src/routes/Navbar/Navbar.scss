@@ -4,7 +4,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: fixed;
   padding: 1.5rem 2rem;
+  width: 100%;
+  z-index: 10;
+  background-color: rgb(24, 23, 23);
 
   .logo {
     display: flex;
