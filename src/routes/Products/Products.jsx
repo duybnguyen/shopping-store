@@ -1,12 +1,22 @@
 import { useState, useEffect } from "react";
 import { CubeSpinner } from "react-spinners-kit";
 import Navbar from "../Navbar/Navbar";
+import caratIcon from "../../assets/carat-down.png"
 import "./Products.scss";
 import StarRatings from "react-star-ratings";
 
 const Products = () => {
   const [storeItems, setStoreItems] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [itemsFilter, setItemsFilter] = useState("All")
+  const [showFilters, setShowFilters] = useState(false)
+
+  const toggleShowFilters = () => setShowFilters(prev => !prev)
+
+  const setFilter = filter => {
+    setItemsFilter(filter)
+    setShowFilters(false)
+  }
 
   useEffect(() => {
     const getStoreItems = async () => {
@@ -42,13 +52,26 @@ const Products = () => {
             <h2 className="title">Shop</h2>
 
             <div className="filter-container">
-              <p className="">Home {">"} Products</p>
-              <select name="filter" id="filter">
-                <option value="all">All</option>
-                <option value="jewelry">Jewelry</option>
-                <option value="mens">Men's Clothing</option>
-                <option value="womens">Women's Clothing</option>
-              </select>
+              <p>Home</p>
+              <p className="carat-side">{">"}</p>
+              <p>Products</p>
+              <p className="carat-side">{">"}</p>
+
+              <div className="filter">
+                <div className="filter-toggle" onClick={toggleShowFilters}>
+                  <p>{itemsFilter}</p>
+                  <img src={caratIcon} alt="carat-icon" />
+                </div>
+
+                {showFilters && (
+                  <div className="filter-options">
+                    <p onClick={setFilter('all')}>All</p>
+                    <p onClick={setFilter('Jewelry')}>Jewelry</p>
+                    <p onClick={setFilter()}>Men's Clothing</p>
+                    <p>Women's Clothing</p>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 

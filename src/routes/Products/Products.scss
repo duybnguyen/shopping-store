@@ -23,12 +23,54 @@
 
     .filter-container {
       display: flex;
-      gap: .5rem;
+      align-items: center;
+      gap: .6rem;
 
-      select {
-        border: 0;
-        background-color: transparent;
-        
+      .carat-side {
+        font-size: .6rem;
+      }
+
+      .filter {
+        position: relative;
+
+        .filter-toggle {
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          font-weight: bold;
+          gap: .4rem;
+          padding: .3rem .5rem;
+          border-radius: .3rem;
+          margin-bottom: .3rem;
+
+          img {
+            width: 15px;
+          }
+        }
+
+        .filter-toggle:hover {
+          background: rgb(231, 224, 224);
+          transition: .3s;
+
+        }
+
+        .filter-options {
+          position: absolute;
+          background: white;
+          box-shadow: 1px 1px 6px gray;
+          z-index: 10;
+          width: 180px;
+
+          p {
+            padding: .5rem 1rem;
+            cursor: pointer;
+          }
+
+          p:hover {
+            background-color: rgb(233, 220, 220);
+            transition: .2s;
+          }
+        }
       }
     }
   }
