@@ -40,7 +40,7 @@
           align-items: center;
           font-weight: bold;
           gap: .4rem;
-          padding: .3rem .5rem;
+          padding: .4rem .6rem;
           border-radius: .3rem;
           margin-bottom: .3rem;
 
@@ -84,71 +84,80 @@
     
 
     .item {
+      max-width: 400px;
+      box-shadow: 2px 2px 4px 2px lightgray;
+      border-radius: 1rem;
+      padding: 2rem;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
 
       .link {
         text-decoration: none;
         color: black;
-        max-width: 400px;
-        box-shadow: 2px 2px 4px 2px lightgray;
-        border-radius: 1rem;
-        padding: 2rem;
+        width: 100%;
+        gap: 1rem;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 1rem;
-        cursor: pointer;
-      }
-
-
-      h3 {
-        align-self: flex-start;
-        font-size: 1rem;
-      }
-
-
-      img {
-        max-height: 100px;
-        max-width: 100%;
-        margin-bottom: auto;
-      }
-
-      .item-details {
-        
-        display: flex;
         justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        
-      
-        .rating-container {
-          display: flex;
-          align-items: center;
-          gap: .5rem;
+        flex-grow: 1;
+
+
+        h3 {
+          align-self: flex-start;
+          font-size: 1rem;
+        }
+  
+  
+        img {
+          max-height: 100px;
+          max-width: 100%;
+          margin-bottom: auto;
+        }
+  
+        .item-details {
           
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          
+        
+          .rating-container {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            
+          }
         }
       }
-    }
-
-    .button-container {
-      display: flex;
-      width: 100%;
-      gap: 1rem;
-
-      button {
+  
+      .button-container {
+        display: flex;
         width: 100%;
-        padding: .4rem;
-        background-color: transparent;
-        border: 2px solid black;
-        font-weight: bold;
-        cursor: pointer;
+        gap: 1rem;
+  
+        button {
+          width: 100%;
+          padding: .4rem;
+          background-color: transparent;
+          border: 2px solid black;
+          font-weight: bold;
+          cursor: pointer;
+        }
+  
+        button:hover {
+          background-color: black;
+          color: white;
+          transition: .25s;
+        }
+      }
       }
 
-      button:hover {
-        background-color: black;
-        color: white;
-        transition: .25s;
-      }
-    }
+
 
     .item:hover {
       transform: scale(1.03);
