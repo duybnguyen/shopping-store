@@ -84,15 +84,21 @@
     
 
     .item {
-      max-width: 400px;
-      box-shadow: 2px 2px 4px 2px lightgray;
-      border-radius: 1rem;
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-      cursor: pointer;
+
+      .link {
+        text-decoration: none;
+        color: black;
+        max-width: 400px;
+        box-shadow: 2px 2px 4px 2px lightgray;
+        border-radius: 1rem;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        cursor: pointer;
+      }
+
 
       h3 {
         align-self: flex-start;
