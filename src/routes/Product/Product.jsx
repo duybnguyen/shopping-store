@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import StarRatings from "react-star-ratings";
-import leftArrowIcon from "../../assets/leftArrow.png";
+import leftArrowIcon from "../../assets/left-arrow.png";
+import cartDownIcon from "../../assets/carat-down.png"
 import Navbar from "../Navbar/Navbar";
 import "./Product.scss";
 
 const Product = () => {
+  const [quantity, setQuantity] = useState(1)
+  const [showDropdown, setShowDropdown] = useState(false)
+
+  const toggleDropdown = () => setShowDropdown(prev => !prev)
+
   const location = useLocation();
   const { item } = location.state || {};
 
@@ -39,18 +45,43 @@ const Product = () => {
                 rating={item.rating.rate}
                 numberOfStars={5}
                 starRatedColor="#F7E733"
-                starDimension="20px"
-                starSpacing="5px"
+                starDimension="15px"
+                starSpacing="1px"
               />
             </div>
-            <p>{item.rating.count}</p>
+            <p>
+              Total ratings: <span>{item.rating.count}</span>
+            </p>
           </div>
         </div>
 
         <div className="purchase-container">
-          <p>${item.price}</p>
-          <p>In Stock</p>
-          <p>Quantity</p>
+          <p className="price">${item.price}</p>
+          <p>Free Returns</p>
+          <p className="stock">In Stock</p>
+
+          <p>Free shipping on orders above $50</p>
+
+          <div className="dropdown" onClick={toggleDropdown}>
+            <div className="toggle-container">
+              <p>Quantity: {quantity}</p>
+              <img
+                src={cartDownIcon}
+                alt="carat down icon"
+                className={showDropdown ? "rotate" : "unrotate"}
+              />
+            </div>
+
+            {showDropdown && (
+              <div className="content">
+                <p onClick={() => setQuantity(1)}>1</p>
+                <p onClick={() => setQuantity(2)}>2</p>
+                <p onClick={() => setQuantity(3)}>3</p>
+                <p onClick={() => setQuantity(4)}>4</p>
+                <p onClick={() => setQuantity(5)}>5</p>
+              </div>
+            )}
+          </div>
           <div className="button-container">
             <button>Add to Cart</button>
             <button>Buy Now</button>
