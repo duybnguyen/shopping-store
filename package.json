@@ -14,7 +14,7 @@
     "@nextui-org/react": "^2.4.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.24.1",
+    "react-router-dom": "^6.6.1",
     "react-spinners-kit": "^1.9.1",
     "react-star-ratings": "^2.3.0"
   },

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { CubeSpinner } from "react-spinners-kit";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import caratIcon from "../../assets/carat-down.png";
 import "./Products.scss";
@@ -12,9 +12,9 @@ const Products = () => {
   const [itemsFilter, setItemsFilter] = useState("All");
   const [showFilters, setShowFilters] = useState(false);
 
-  const toggleShowFilters = () => setShowFilters(prev => !prev);
+  const toggleShowFilters = () => setShowFilters((prev) => !prev);
 
-  const setFilter = filter => {
+  const setFilter = (filter) => {
     setItemsFilter(filter);
     setShowFilters(false);
   };
@@ -23,8 +23,10 @@ const Products = () => {
     const getStoreItems = async () => {
       setLoading(true);
       try {
-        let filter = itemsFilter === "All" ? '' : itemsFilter.toLowerCase();
-        const url = filter ? `https://fakestoreapi.com/products/category/${filter}` : `https://fakestoreapi.com/products`;
+        let filter = itemsFilter === "All" ? "" : itemsFilter.toLowerCase();
+        const url = filter
+          ? `https://fakestoreapi.com/products/category/${filter}`
+          : `https://fakestoreapi.com/products`;
         const items = await fetch(url, {
           mode: "cors",
         });
@@ -81,7 +83,11 @@ const Products = () => {
             {storeItems.length > 0 ? (
               storeItems.map((item) => (
                 <div className="item" key={item.id}>
-                  <Link to={`/products/${item.id}`} className="link">
+                  <Link
+                    to={`/products/${item.id}`}
+                    state={{ item }}
+                    className="link"
+                  >
                     <img src={item.image} alt="product image" />
                     <h3>{item.title}</h3>
 
@@ -96,7 +102,7 @@ const Products = () => {
                           starRatedColor="#F7E733"
                           starDimension="15px"
                           starSpacing="2px"
-                          />
+                        />
                       </div>
                     </div>
 

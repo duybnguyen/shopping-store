@@ -1,0 +1,28 @@
+.product-container {
+
+  .back-container {
+    padding: 7rem 5rem 0 5rem;
+    display: flex;
+    
+    
+    a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      gap: .3rem;
+      padding: .3rem .5rem;
+      border-radius: .3rem;
+
+      img {
+        width: 20px;
+      }
+    }
+  }
+
+  a:hover {
+    background-color: rgb(235, 224, 224);
+    transition: .2s;
+  }
+}
