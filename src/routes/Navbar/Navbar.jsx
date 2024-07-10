@@ -18,9 +18,9 @@ const Navbar = () => {
       </div>
 
       <div className="words-container">
-        <h3>Products</h3>
+        <Link to="/products">Products</Link>
 
-        <h3>About</h3>
+        <Link to="/about">About</Link>
 
         <img src={cartIcon} alt="cart icon" className="cart"/>
       </div>
