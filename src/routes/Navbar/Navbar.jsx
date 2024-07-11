@@ -32,7 +32,7 @@ const Navbar = () => {
     setSearch(query);
     const filtered = itemsData
       .filter((item) => item.title.toLowerCase().includes(query.toLowerCase()))
-      .slice(0, 5); // Limit to top 5 results
+      .slice(0, 5);
     setFilteredData(filtered);
   };
 
@@ -87,7 +87,9 @@ const Navbar = () => {
       <div className="words-container">
         <Link to="/products">Products</Link>
         <Link to="/about">About</Link>
-        <img src={cartIcon} alt="cart icon" className="cart" />
+        <Link to="/cart">
+          <img src={cartIcon} alt="cart icon" className="cart" />
+        </Link>
       </div>
     </div>
   );

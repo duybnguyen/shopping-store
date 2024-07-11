@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import StarRatings from "react-star-ratings";
 import leftArrowIcon from "../../assets/left-arrow.png";

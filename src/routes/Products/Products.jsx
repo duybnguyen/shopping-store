@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { CubeSpinner } from "react-spinners-kit";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { setItemToLocalStorage } from "../../storage/storage";
 import Navbar from "../Navbar/Navbar";
 import caratIcon from "../../assets/carat-down.png";
 import "./Products.scss";
@@ -11,6 +12,19 @@ const Products = () => {
   const [loading, setLoading] = useState(false);
   const [itemsFilter, setItemsFilter] = useState("All");
   const [showFilters, setShowFilters] = useState(false);
+
+  const navigate = useNavigate()
+
+  const handleAddToCart = (e, item) => {
+    e.stopPropagation();
+    setItemToLocalStorage(item)
+  };
+
+  const handleBuyNow = (e, item) => {
+    e.stopPropagation();
+    setItemToLocalStorage(item)
+    navigate("/checkout");
+  };
 
   const toggleShowFilters = () => setShowFilters((prev) => !prev);
 
@@ -71,8 +85,12 @@ const Products = () => {
                   <div className="filter-options">
                     <p onClick={() => setFilter("All")}>All</p>
                     <p onClick={() => setFilter("Jewelery")}>Jewelery</p>
-                    <p onClick={() => setFilter("Men's Clothing")}>Men's Clothing</p>
-                    <p onClick={() => setFilter("Women's Clothing")}>Women's Clothing</p>
+                    <p onClick={() => setFilter("Men's Clothing")}>
+                      Men's Clothing
+                    </p>
+                    <p onClick={() => setFilter("Women's Clothing")}>
+                      Women's Clothing
+                    </p>
                   </div>
                 )}
               </div>
@@ -105,12 +123,17 @@ const Products = () => {
                         />
                       </div>
                     </div>
-
-                    <div className="button-container">
-                      <button>Buy Now</button>
-                      <button>Add to Cart</button>
-                    </div>
                   </Link>
+
+
+                  <div className="button-container">
+                    <button onClick={(e) => handleBuyNow(e, item)}>
+                      Buy Now
+                    </button>
+                    <button onClick={(e) => handleAddToCart(e, item)}>
+                      Add to Cart
+                    </button>
+                  </div>
                 </div>
               ))
             ) : (
