@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import StarRatings from "react-star-ratings";
 import leftArrowIcon from "../../assets/left-arrow.png";
 import cartDownIcon from "../../assets/carat-down.png";
@@ -10,6 +10,8 @@ import "./Product.scss";
 const Product = () => {
   const [quantity, setQuantity] = useState(1);
   const [showDropdown, setShowDropdown] = useState(false);
+
+  const navigate = useNavigate()
 
   const toggleDropdown = () => setShowDropdown((prev) => !prev);
 
@@ -24,6 +26,13 @@ const Product = () => {
     e.preventDefault(); 
     setItemToLocalStorage(item, quantity); 
   };
+
+  const handleBuyNow = (e) => {
+    e.stopPropagation();
+    setItemToLocalStorage(item, 1);
+    navigate("/cart");
+  }
+
 
   return (
     <div className="product-container">
@@ -88,7 +97,7 @@ const Product = () => {
           </div>
           <div className="button-container">
             <button onClick={handleAddToCart}>Add to Cart</button>
-            <button>Buy Now</button>
+            <button onClick={handleBuyNow}>Buy Now</button>
           </div>
         </div>
       </div>
