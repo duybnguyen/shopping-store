@@ -2,24 +2,28 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import StarRatings from "react-star-ratings";
 import leftArrowIcon from "../../assets/left-arrow.png";
-import cartDownIcon from "../../assets/carat-down.png"
+import cartDownIcon from "../../assets/carat-down.png";
 import Navbar from "../Navbar/Navbar";
+import { setItemToLocalStorage } from "../../storage/storage"; // Import the storage function
 import "./Product.scss";
 
 const Product = () => {
-  const [quantity, setQuantity] = useState(1)
-  const [showDropdown, setShowDropdown] = useState(false)
+  const [quantity, setQuantity] = useState(1);
+  const [showDropdown, setShowDropdown] = useState(false);
 
-  const toggleDropdown = () => setShowDropdown(prev => !prev)
+  const toggleDropdown = () => setShowDropdown((prev) => !prev);
 
   const location = useLocation();
   const { item } = location.state || {};
 
-  console.log(item)
-
   if (!item) {
     return <div>No item data found</div>;
   }
+
+  const handleAddToCart = (e) => {
+    e.preventDefault(); 
+    setItemToLocalStorage(item, quantity); 
+  };
 
   return (
     <div className="product-container">
@@ -74,16 +78,16 @@ const Product = () => {
 
             {showDropdown && (
               <div className="content">
-                <p onClick={() => setQuantity(1)}>1</p>
-                <p onClick={() => setQuantity(2)}>2</p>
-                <p onClick={() => setQuantity(3)}>3</p>
-                <p onClick={() => setQuantity(4)}>4</p>
-                <p onClick={() => setQuantity(5)}>5</p>
+                {[1, 2, 3, 4, 5].map((num) => (
+                  <p key={num} onClick={() => setQuantity(num)}>
+                    {num}
+                  </p>
+                ))}
               </div>
             )}
           </div>
           <div className="button-container">
-            <button>Add to Cart</button>
+            <button onClick={handleAddToCart}>Add to Cart</button>
             <button>Buy Now</button>
           </div>
         </div>

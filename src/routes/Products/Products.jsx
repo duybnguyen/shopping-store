@@ -23,7 +23,7 @@ const Products = () => {
   const handleBuyNow = (e, item) => {
     e.stopPropagation();
     setItemToLocalStorage(item)
-    navigate("/checkout");
+    navigate("/cart");
   };
 
   const toggleShowFilters = () => setShowFilters((prev) => !prev);

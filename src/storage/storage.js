@@ -8,21 +8,33 @@ export const getAllItemsFromLocalStorage = () => {
   return items;
 };
 
-
-export const setItemToLocalStorage = (item) => {
-  const check = localStorage.getItem(item.id)
+export const setItemToLocalStorage = (item, quantity) => {
+  const check = localStorage.getItem(item.id);
   if (check) {
     const existingItem = JSON.parse(check);
-    existingItem.count++
-    localStorage.setItem(check.id, JSON.stringify(existingItem))
-    
+    existingItem.count += quantity; 
+    localStorage.setItem(item.id, JSON.stringify(existingItem));
   } else {
-    const newItem = {...item, count: 1}
-    localStorage.setItem(newItem.id, JSON.stringify(item))
+    const newItem = { ...item, count: quantity }; 
+    localStorage.setItem(item.id, JSON.stringify(newItem));
   }
-  localStorage.setItem(item.id, JSON.stringify(item));
 };
 
-export const deleteItemFromLocalStorage = id => {
-  localStorage.removeItem(id)
-}
+
+export const deleteItemFromLocalStorage = (id) => {
+  localStorage.removeItem(id);
+};
+
+export const updateItemInLocalStorage = (id, updateData) => {
+  const itemString = localStorage.getItem(id);
+
+  if (itemString) {
+    const item = JSON.parse(itemString);
+    const updatedItem = { ...item, ...updateData };
+    localStorage.setItem(id, JSON.stringify(updatedItem));
+    return updatedItem;
+  } else {
+    console.error(`Item with id ${id} not found in localStorage`);
+    return null;
+  }
+};

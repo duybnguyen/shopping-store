@@ -91,14 +91,13 @@
       cursor: pointer;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
 
 
       .link {
         text-decoration: none;
         color: black;
         width: 100%;
-        gap: 1rem;
+        gap: .5rem;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -119,7 +118,6 @@
         }
   
         .item-details {
-          
           display: flex;
           justify-content: space-between;
           align-items: center;
@@ -136,6 +134,7 @@
       }
   
       .button-container {
+        margin-top: .8rem;
         display: flex;
         width: 100%;
         gap: 1rem;
