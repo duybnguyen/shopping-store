@@ -17,12 +17,12 @@ const Products = () => {
 
   const handleAddToCart = (e, item) => {
     e.stopPropagation();
-    setItemToLocalStorage(item)
+    setItemToLocalStorage(item, 1)
   };
 
   const handleBuyNow = (e, item) => {
     e.stopPropagation();
-    setItemToLocalStorage(item)
+    setItemToLocalStorage(item, 1)
     navigate("/cart");
   };
 

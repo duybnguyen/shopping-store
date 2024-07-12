@@ -8,4 +8,24 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
+
+  .github {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+    text-decoration: none;
+    color: black;
+    padding: .4rem .8rem;
+    border-radius: 1rem;
+  }
+
+  .github:hover {
+    background-color: rgb(228, 213, 213);
+    transition: .3s;
+    
+  }
 }

@@ -1,5 +1,6 @@
 import "./About.scss"
 import Navbar from "../Navbar/Navbar"
+import githubIcon from "../../assets/github.png"
 
 
 const About = () => {
@@ -15,9 +16,21 @@ const About = () => {
         </p>
         <p>
           Products' information and images:{" "}
-          <a href="https://fakestoreapi.com/" target="blank" rel="noreferrer"></a>Fake Store API.
+          <a href="https://fakestoreapi.com/" target="blank" rel="noreferrer">
+            Fake Store API.
+          </a>
         </p>
       </div>
+
+      <a
+        href="https://github.com/duynguyen-js/shopping-store"
+        target="blank"
+        rel="noreferrer"
+        className="github"
+      >
+        <img src={githubIcon} alt="github icon" />
+        <p>duynguyen-js</p>
+      </a>
     </div>
   );
 }
